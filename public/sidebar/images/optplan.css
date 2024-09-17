@@ -1,0 +1,13 @@
+.header__div header
+{
+    font-size: 30px;
+    padding-left: 3rem
+}
+
+
+.body_div
+{
+    height: 90%;
+    width: 80%;
+    border: 1px solid #1E1E1E;
+}
