@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tests', function (Blueprint $table) {
+        Schema::create('reminder_types', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->biginteger('user_id');
+            $table->string('reminder_name');
+            $table->string('reminder_type');
+            $table->datetime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tests');
+        Schema::dropIfExists('reminder_types');
     }
 };
