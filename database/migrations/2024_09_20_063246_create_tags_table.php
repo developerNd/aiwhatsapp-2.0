@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('auto_replies', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id()->unsigned();
+            $table->biginteger('user_id')->unsigned()->nullable();
+            $table->string('name');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('auto_replies');
+        Schema::dropIfExists('tags');
     }
 };
